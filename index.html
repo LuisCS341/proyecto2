@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnet Universitario</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importar la biblioteca JsBarcode -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+    <div class="card">
+        <header class="card-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Universidad_de_Lima_logo.png/120px-Universidad_de_Lima_logo.png" alt="Logo Universidad" class="logo">
+        </header>
+        <main class="card-body">
+            <h2>CISNEROS SALAS<br>LUIS ANGEL</h2>
+            <p class="student-code">20232334</p>
+            <img src="img/perfil.png" alt="Foto del estudiante" class="student-photo">
+            <div class="line-orange"></div>
+        </main>
+        
+        <footer class="card-footer">
+            <p class="role">ALUMNO</p>
+            <svg id="barcode"></svg>
+        </footer>
+    </div>
+
+    <script>
+        // Generar código de barras con JsBarcode
+        JsBarcode("#barcode", "20234537", {
+            format: "CODE128",
+            lineColor: "#000",
+            width: 3.3,
+            height: 50,
+            displayValue: false // Oculta los números debajo del código de barras
+        });
+    </script>
+</body>
+</html>
