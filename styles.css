@@ -11,7 +11,7 @@ html, body {
     background-color: #f4f4f9;
 }
 
-/* Ajustar el card para ocupar toda la pantalla */
+/* Ajustar el card para ocupar toda la pantalla en dispositivos móviles */
 .card {
     width: 100%; /* Ocupa todo el ancho del viewport */
     height: 100%; /* Ocupa todo el alto del viewport */
@@ -109,5 +109,33 @@ html, body {
     }
     100% {
         top: 0;
+    }
+}
+
+/* Media Queries para pantallas móviles */
+@media screen and (max-width: 768px) {
+    /* En pantallas pequeñas (como teléfonos), ajustamos el card */
+    .card {
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+
+    /* Ajustamos el tamaño de la foto */
+    .student-photo {
+        width: 50%; /* Proporcional al tamaño del celular */
+        height: auto;
+    }
+
+    /* Ajustamos los tamaños de texto */
+    .card-body h2 {
+        font-size: 18px;
+    }
+
+    .student-code {
+        font-size: 18px;
+    }
+
+    .role {
+        font-size: 14px;
     }
 }
