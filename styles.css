@@ -1,83 +1,96 @@
-/* Configuración del body */
-html, body {
+body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
     background-color: #f4f4f9;
 }
 
-/* Ajustar el card para ocupar toda la pantalla en dispositivos móviles */
 .card {
-    width: 100%; /* Ocupa todo el ancho del viewport */
-    height: 100%; /* Ocupa todo el alto del viewport */
-    border-radius: 0; /* Quita las esquinas redondeadas */
+    width: 320px;
+    height: 540px;
+    border-radius: 15px;
     background: #ffffff;
-    box-shadow: none; /* Elimina la sombra (opcional) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     display: flex;
     flex-direction: column;
-    position: relative;
-    overflow: hidden;
+    position: relative; /* Necesario para que la línea se limite al card */
+    overflow: hidden; /* Esconde cualquier cosa que salga de los bordes */
 }
 
-/* Header */
+/* Header Section */
 .card-header {
     padding: 10px;
     background: #ffffff;
 }
 
 .logo {
-    width: 100px;
+    width: 70px;
     height: auto;
     margin-bottom: 10px;
 }
 
-/* Body */
+.card-header h1 {
+    font-size: 16px;
+    font-weight: 100; /* Letra más fina */
+    color: #f58220;
+    margin: 0;
+}
+
+/* Body Section */
 .card-body {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .card-body h2 {
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 400; /* Letra más fina */
     color: #f58220;
     margin: 10px 0;
+    line-height: 1.5;
     text-align: center;
 }
 
 .student-code {
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 19px;
+    font-weight: 400; /* Letra más fina */
     margin: 5px 0;
     color: #f58220;
 }
 
-.student-photo {
-    width: 40%; /* Proporcional al ancho de la pantalla */
-    height: auto;
-    object-fit: cover;
-    margin: 20px 0;
+.line {
+    width: 80%;
+    height: 2px;
+    background: #f58220;
+    margin: 10px 0;
 }
 
-/* Footer */
+.student-photo {
+    width: 150px; /* Aumenta el tamaño de la imagen */
+    height: 180px; /* Ajusta la altura proporcionalmente */
+    object-fit: cover; /* Asegura que la imagen se recorte si es necesario */
+    margin: 0 auto; /* Centra horizontalmente */
+    display: block; /* Asegura que se comporte como un bloque independiente */
+}
+
 .card-footer {
     padding: 10px;
     background: #ffffff;
 }
 
 .role {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 100; /* Letra más fina */
     color: #f58220;
+    font-weight: bold;
     margin: 5px 0;
 }
 
@@ -87,55 +100,26 @@ html, body {
     margin: 10px 0;
 }
 
-/* Línea decorativa */
 .line-orange {
-    width: 100%;
-    height: 4px;
-    background: #f58220;
-    position: absolute;
+    width: 100%; /* Ocupa todo el ancho del card */
+    height: 4px; /* Ajusta el grosor de la línea */
+    background: #f58220; /* Color naranja */
+    position: absolute; /* Se posiciona dentro del card */
     left: 0;
-    animation: moveLineInside 3s linear infinite;
-    z-index: 0;
+    animation: moveLineInside 3s linear infinite; /* Animación continua */
+    z-index: 0; /* Aparece detrás de los demás elementos */
     box-shadow: 0 0 15px 5px rgba(245, 130, 32, 0.5);
 }
 
-/* Animación */
+/* Animación continua */
 @keyframes moveLineInside {
     0% {
-        top: 0;
+        top: 0; /* Comienza en la parte superior del recuadro */
     }
     50% {
-        top: 100%;
+        top: 100%; /* Pasa por debajo de todo el recuadro */
     }
     100% {
-        top: 0;
-    }
-}
-
-/* Media Queries para pantallas móviles */
-@media screen and (max-width: 768px) {
-    /* En pantallas pequeñas (como teléfonos), ajustamos el card */
-    .card {
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-    }
-
-    /* Ajustamos el tamaño de la foto */
-    .student-photo {
-        width: 50%; /* Proporcional al tamaño del celular */
-        height: auto;
-    }
-
-    /* Ajustamos los tamaños de texto */
-    .card-body h2 {
-        font-size: 18px;
-    }
-
-    .student-code {
-        font-size: 18px;
-    }
-
-    .role {
-        font-size: 14px;
+        top: 0; /* Regresa a la parte superior */
     }
 }
